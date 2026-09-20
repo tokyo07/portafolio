@@ -307,19 +307,35 @@ footer{
 
       <article class="card">
         <div class="card-top">
-          <h3>Delportal — aplicación web autocontenida</h3>
-          <span class="tag">cliente</span>
+          <h3>Media Player Delportal — cartelería digital</h3>
+          <span class="tag">en producción</span>
         </div>
         <p>
-          Aplicación de una sola página que funciona sin conexión, con un sistema
-          de diseño propio construido a mano sobre variables CSS: paleta, escala
-          de sombras y tipografía definidas como tokens reutilizables.
+          Sistema de cartelería digital para las TVs de Delportal Supermercados.
+          Un Hub corre en una PC del local y reparte los videos a cada pantalla
+          por la red interna: sin nube, sin internet, sin base de datos que
+          mantener. Se administra desde un panel web abierto en cualquier
+          navegador de esa misma red.
         </p>
+        <p>
+          La decisión de diseño que lo sostiene: <strong>el Hub no es una
+          dependencia al momento de reproducir</strong>. Se enciende solo para
+          publicar algo nuevo, y las pantallas siguen funcionando igual con él
+          apagado.
+        </p>
+        <ul class="bullets">
+          <li>Cada TV descubre el Hub sola por mDNS, con carga manual de IP como respaldo</li>
+          <li>Los cambios —un video nuevo, otro orden— llegan al instante a las pantallas conectadas</li>
+          <li>Una TV apagada se pone al día sola al reconectarse; además revisa cada 15 minutos por si acaso</li>
+          <li>Cada pantalla guarda su propia copia, así que reproduce sin cortes aunque el Hub no esté</li>
+          <li>Persistencia en archivos planos — nada de base de datos externa que administrar</li>
+        </ul>
         <div class="chips">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">JavaScript</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">mDNS</span>
+          <span class="chip">push en tiempo real</span>
           <span class="chip">offline-first</span>
+          <span class="chip">red local</span>
         </div>
       </article>
 
