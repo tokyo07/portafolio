@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Douglas Macías — Desarrollo & Automatización</title>
+<meta name="description" content="Desarrollador full-stack e infraestructura IT. Construyo sistemas de punto de venta, automatización con IA y herramientas internas.">
+
+<meta property="og:title" content="Douglas Macías — Desarrollo & Automatización">
+<meta property="og:description" content="Desarrollador full-stack e infraestructura IT. Sistemas POS, automatización con IA y herramientas internas.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#0b0c0e;
+  --surface:#131519;
+  --surface-2:#191c21;
+  --line:#262a31;
+  --line-soft:#1d2026;
+  --ink:#eceef1;
+  --ink-2:#a8aeb8;
+  --ink-3:#6f7681;
+  --accent:#f0a12e;
+  --accent-ink:#1a1204;
+  --accent-soft:rgba(240,161,46,.12);
+  --radius:14px;
+  --maxw:980px;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#fbfaf8;
+    --surface:#ffffff;
+    --surface-2:#f5f3ef;
+    --line:#e2ded6;
+    --line-soft:#ebe8e1;
+    --ink:#17191c;
+    --ink-2:#4e545d;
+    --ink-3:#848b95;
+    --accent:#b4700c;
+    --accent-ink:#ffffff;
+    --accent-soft:rgba(180,112,12,.10);
+  }
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+h1,h2,h3{line-height:1.2;letter-spacing:-.02em;margin:0}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-in{
+  max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.01em;text-decoration:none}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:22px}
+.nav-links a{
+  font-size:14px;color:var(--ink-2);text-decoration:none;
+  transition:color .15s;
+}
+.nav-links a:hover{color:var(--ink)}
+@media (max-width:640px){ .nav-links{display:none} }
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 64px}
+@media (max-width:700px){ .hero{padding:56px 0 48px} }
+.eyebrow{
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 18px;
+}
+.hero h1{font-size:clamp(32px,6vw,54px);font-weight:800;margin-bottom:20px;text-wrap:balance}
+@media (max-width:700px){ .br-lg{display:none} }
+.hero p{
+  font-size:clamp(16px,2.2vw,19px);color:var(--ink-2);
+  max-width:60ch;margin:0 0 32px;
+}
+.hero strong{color:var(--ink);font-weight:600}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:9px;
+  font-size:14px;font-weight:600;text-decoration:none;
+  border:1px solid var(--line);
+  transition:transform .12s, border-color .15s, background .15s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-ghost{background:var(--surface);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-3)}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-top:1px solid var(--line-soft)}
+.sec-head{margin-bottom:32px}
+.sec-head h2{font-size:24px;font-weight:700;margin-bottom:6px}
+.sec-head p{color:var(--ink-3);font-size:14px;margin:0}
+
+/* ---------- project cards ---------- */
+.projects{display:grid;gap:16px}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  transition:border-color .18s, transform .18s;
+}
+.card:hover{border-color:var(--ink-3);transform:translateY(-2px)}
+.card-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;margin-bottom:10px;flex-wrap:wrap;
+}
+.card h3{font-size:18px;font-weight:700}
+.tag{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  padding:3px 9px;border-radius:99px;white-space:nowrap;
+  background:var(--accent-soft);color:var(--accent);
+}
+.card > p{color:var(--ink-2);font-size:15px;margin:0 0 16px}
+
+.bullets{margin:0 0 18px;padding-left:18px;color:var(--ink-2);font-size:14.5px}
+.bullets li{margin-bottom:5px}
+.bullets li::marker{color:var(--accent)}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chip{
+  font-family:var(--mono);font-size:11.5px;
+  padding:4px 9px;border-radius:6px;
+  background:var(--surface-2);color:var(--ink-2);
+  border:1px solid var(--line-soft);
+}
+.card-links{display:flex;flex-wrap:wrap;gap:16px}
+.card-links a{
+  font-size:13.5px;font-weight:600;color:var(--accent);
+  text-decoration:none;display:inline-flex;align-items:center;gap:5px;
+}
+.card-links a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- areas ---------- */
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.area{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px;
+}
+.area h3{
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;
+}
+.area p{font-size:14px;color:var(--ink-2);margin:0}
+
+/* ---------- about ---------- */
+.about p{color:var(--ink-2);max-width:66ch;margin:0 0 14px;font-size:15.5px}
+.about strong{color:var(--ink);font-weight:600}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--line-soft);
+  padding:40px 0 56px;
+}
+.foot-in{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.foot-links{display:flex;flex-wrap:wrap;gap:20px}
+.foot-links a{font-size:14px;color:var(--ink-2);text-decoration:none}
+.foot-links a:hover{color:var(--accent)}
+.foot-note{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+
+/* ---------- editorial marker (borrar al publicar) ---------- */
+.todo{
+  border-style:dashed;
+  border-color:var(--ink-3);
+  background:transparent;
+}
+.todo::before{
+  content:"PENDIENTE DE COMPLETAR";
+  display:block;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.1em;color:var(--ink-3);margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">douglas<span>.</span>macías</a>
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#areas">Áreas</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header class="hero">
+    <p class="eyebrow">Guayaquil, Ecuador</p>
+    <h1>Construyo sistemas que<br class="br-lg">otros tienen que usar<br class="br-lg">todos los días.</h1>
+    <p>
+      Desarrollo full-stack e infraestructura IT. Trabajo donde el software toca
+      la operación real: <strong>puntos de venta, facturación, inventario</strong> y
+      la <strong>automatización con IA</strong> del trabajo repetitivo que hay alrededor.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/tokyo07">Ver GitHub →</a>
+      <a class="btn btn-ghost" href="mailto:maciasdou@gmail.com">Escríbeme</a>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <div class="sec-head">
+      <h2>Proyectos</h2>
+      <p>Trabajo en producción y herramientas propias.</p>
+    </div>
+
+    <div class="projects">
+
+      <article class="card">
+        <div class="card-top">
+          <h3>POS multi-vertical — retail y lavandería</h3>
+          <span class="tag">en producción</span>
+        </div>
+        <p>
+          Punto de venta con facturación electrónica para Ecuador (SRI). Empezó como
+          un POS de retail genérico y lo convertí en un sistema multi-vertical: cada
+          negocio declara su <code>business_type</code> y eso determina qué módulos ve,
+          sin duplicar la base de código.
+        </p>
+        <ul class="bullets">
+          <li>Autenticación y permisos por fila (RLS) sobre Postgres</li>
+          <li>Escaneo de códigos de barras desde la cámara del navegador</li>
+          <li>Exportación de reportes a PDF y Excel</li>
+          <li>Dashboards de ventas e inventario</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Next.js 16</span>
+          <span class="chip">React 19</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">PostgreSQL + RLS</span>
+          <span class="chip">Tailwind</span>
+          <span class="chip">Zod</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tokyo07/pos-web">Código →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Herramientas de IA para trabajo operativo</h3>
+          <span class="tag">propio</span>
+        </div>
+        <p>
+          Skills y servidores MCP que convierten tareas manuales y repetitivas en
+          flujos de un solo paso. No son demos: salieron de problemas que tenía
+          delante.
+        </p>
+        <ul class="bullets">
+          <li><strong>Auditor de logs POS</strong> — lee el log crudo de un punto de venta, reconstruye qué se escaneó en una factura concreta y marca anomalías (ítems de balanza, códigos inconsistentes) en una tabla navegable</li>
+          <li><strong>Generador de landings</strong> — parte de un brief de cliente y entrega una landing lista para publicar</li>
+          <li><strong>Automatización de altas de usuario</strong> — elimina el paso manual de dar de alta usuarios en un sistema corporativo</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Claude Code Skills</span>
+          <span class="chip">MCP</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">automatización</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>notebooklm-mcp — contribución open source</h3>
+          <span class="tag">upstream</span>
+        </div>
+        <p>
+          Google renombró NotebookLM y empezó a servirlo desde un host nuevo; el
+          login del paquete quedó roto para todos sus usuarios. Localicé la
+          detección de sesión y la hice aceptar ambos hosts, con el motivo
+          documentado en el código para quien lo lea después.
+        </p>
+        <div class="chips">
+          <span class="chip">TypeScript</span>
+          <span class="chip">MCP SDK</span>
+          <span class="chip">Playwright</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/PleasePrompto/notebooklm-mcp">Proyecto →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Delportal — aplicación web autocontenida</h3>
+          <span class="tag">cliente</span>
+        </div>
+        <p>
+          Aplicación de una sola página que funciona sin conexión, con un sistema
+          de diseño propio construido a mano sobre variables CSS: paleta, escala
+          de sombras y tipografía definidas como tokens reutilizables.
+        </p>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">offline-first</span>
+        </div>
+      </article>
+
+      <article class="card todo">
+        <div class="card-top">
+          <h3>Infraestructura y monitoreo</h3>
+        </div>
+        <p>
+          No encontré este material en tu disco — si existe, descríbelo aquí:
+          monitoreo con Zabbix, automatización de Active Directory / DNS, o el
+          caso de estudio de optimización que quieras contar (sin datos sensibles
+          del empleador). Si no existe todavía, borra esta tarjeta: es mejor un
+          portafolio corto y verdadero que uno largo con huecos.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="sec-head">
+      <h2>Áreas</h2>
+      <p>Dónde me muevo con soltura.</p>
+    </div>
+    <div class="areas">
+      <div class="area">
+        <h3>Full-stack</h3>
+        <p>Next.js, React, TypeScript, Postgres y Supabase. Aplicaciones que gestionan operación real, no prototipos.</p>
+      </div>
+      <div class="area">
+        <h3>Infraestructura IT</h3>
+        <p>Redes y sistemas. CCNA. Soporte y operación de entornos donde la caída se nota de inmediato.</p>
+      </div>
+      <div class="area">
+        <h3>Automatización con IA</h3>
+        <p>Servidores MCP, skills y agentes aplicados a tareas repetitivas de negocio.</p>
+      </div>
+      <div class="area">
+        <h3>Datos y estadística</h3>
+        <p>Análisis y visualización en Python y R. Formación en probabilidad y estadística (UEES).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="about">
+    <div class="sec-head">
+      <h2>Sobre mí</h2>
+    </div>
+    <p>
+      Vengo de infraestructura — redes, sistemas, soporte — y eso cambia cómo
+      escribo software. Cuando construyo un punto de venta pienso en el cajero que
+      lo va a usar ocho horas seguidas y en qué pasa cuando se cae internet a
+      media factura.
+    </p>
+    <p>
+      Últimamente dedico buena parte del tiempo a <strong>automatizar con IA el
+      trabajo operativo</strong>: auditar logs, generar reportes, eliminar pasos
+      manuales. Es el punto donde mis dos lados —operación y desarrollo— se
+      juntan bien.
+    </p>
+    <p class="todo" style="padding:16px;border:1px dashed var(--ink-3);border-radius:10px;font-size:14px">
+      Ajusta estos dos párrafos a tu voz y a tu situación actual (rol, empresa,
+      qué buscas). Son lo primero que lee una persona, no un bot.
+    </p>
+  </section>
+
+  <section id="contacto">
+    <div class="sec-head">
+      <h2>Contacto</h2>
+      <p>Abierto a conversar sobre proyectos y oportunidades.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:maciasdou@gmail.com">maciasdou@gmail.com</a>
+      <a class="btn btn-ghost" href="https://github.com/tokyo07">GitHub</a>
+      <a class="btn btn-ghost" href="#" data-todo="pon aquí tu URL de LinkedIn">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="foot-note">© 2026 Douglas Macías</span>
+    <div class="foot-links">
+      <a href="https://github.com/tokyo07">GitHub</a>
+      <a href="mailto:maciasdou@gmail.com">Email</a>
+      <a href="#top">Arriba</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
