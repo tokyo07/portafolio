@@ -244,10 +244,18 @@ footer{
           <span class="tag">en producción</span>
         </div>
         <p>
-          Punto de venta con facturación electrónica para Ecuador (SRI). Empezó como
-          un POS de retail genérico y lo convertí en un sistema multi-vertical: cada
-          negocio declara su <code>business_type</code> y eso determina qué módulos ve,
-          sin duplicar la base de código.
+          Punto de venta con facturación electrónica para Ecuador (SRI). Empezó
+          como un POS de retail genérico y lo convertí en un sistema
+          multi-vertical: cada negocio declara su <code>business_type</code> y
+          eso determina qué módulos ve.
+        </p>
+        <p>
+          La decisión de diseño que lo sostiene: <strong>hay clientes que tienen
+          los dos negocios</strong>. Dos aplicaciones separadas los habrían
+          obligado a trabajar en dos sistemas — dos accesos, dos inventarios, dos
+          sitios donde buscar una venta. Con el vertical como configuración y no
+          como código aparte, el cliente opera en un solo lugar y cada mejora
+          llega a los dos negocios a la vez.
         </p>
         <ul class="bullets">
           <li>Autenticación y permisos por fila (RLS) sobre Postgres</li>
