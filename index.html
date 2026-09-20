@@ -190,17 +190,6 @@ footer{
 .foot-links a:hover{color:var(--accent)}
 .foot-note{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 
-/* ---------- editorial marker (borrar al publicar) ---------- */
-.todo{
-  border-style:dashed;
-  border-color:var(--ink-3);
-  background:transparent;
-}
-.todo::before{
-  content:"PENDIENTE DE COMPLETAR";
-  display:block;font-family:var(--mono);font-size:10.5px;font-weight:600;
-  letter-spacing:.1em;color:var(--ink-3);margin-bottom:10px;
-}
 </style>
 </head>
 <body>
@@ -223,9 +212,10 @@ footer{
     <p class="eyebrow">Guayaquil, Ecuador</p>
     <h1>Construyo sistemas que<br class="br-lg">otros tienen que usar<br class="br-lg">todos los días.</h1>
     <p>
-      Desarrollo full-stack e infraestructura IT. Trabajo donde el software toca
-      la operación real: <strong>puntos de venta, facturación, inventario</strong> y
-      la <strong>automatización con IA</strong> del trabajo repetitivo que hay alrededor.
+      Vengo de infraestructura IT y construyo el software que la operación
+      necesita — <strong>punto de venta, facturación, inventario</strong>. Uso
+      agentes de IA como herramienta de construcción; la arquitectura, el dominio
+      del negocio y la depuración son míos.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/tokyo07">Ver GitHub →</a>
@@ -334,18 +324,6 @@ footer{
         </div>
       </article>
 
-      <article class="card todo">
-        <div class="card-top">
-          <h3>Infraestructura y monitoreo</h3>
-        </div>
-        <p>
-          No encontré este material en tu disco — si existe, descríbelo aquí:
-          monitoreo con Zabbix, automatización de Active Directory / DNS, o el
-          caso de estudio de optimización que quieras contar (sin datos sensibles
-          del empleador). Si no existe todavía, borra esta tarjeta: es mejor un
-          portafolio corto y verdadero que uno largo con huecos.
-        </p>
-      </article>
 
     </div>
   </section>
@@ -357,8 +335,8 @@ footer{
     </div>
     <div class="areas">
       <div class="area">
-        <h3>Full-stack</h3>
-        <p>Next.js, React, TypeScript, Postgres y Supabase. Aplicaciones que gestionan operación real, no prototipos.</p>
+        <h3>Construcción con IA</h3>
+        <p>Especifico, dirijo y despliego sistemas completos sobre Next.js, React, TypeScript y Postgres. El criterio de arquitectura y la depuración son míos; la IA es la herramienta.</p>
       </div>
       <div class="area">
         <h3>Infraestructura IT</h3>
@@ -380,20 +358,17 @@ footer{
       <h2>Sobre mí</h2>
     </div>
     <p>
-      Vengo de infraestructura — redes, sistemas, soporte — y eso cambia cómo
-      escribo software. Cuando construyo un punto de venta pienso en el cajero que
+      Vengo de infraestructura — redes, sistemas, soporte — y eso cambia qué
+      software construyo. Cuando armo un punto de venta pienso en el cajero que
       lo va a usar ocho horas seguidas y en qué pasa cuando se cae internet a
-      media factura.
+      media factura. Esa parte no la resuelve una herramienta: la resuelve
+      conocer la operación.
     </p>
     <p>
       Últimamente dedico buena parte del tiempo a <strong>automatizar con IA el
       trabajo operativo</strong>: auditar logs, generar reportes, eliminar pasos
       manuales. Es el punto donde mis dos lados —operación y desarrollo— se
       juntan bien.
-    </p>
-    <p class="todo" style="padding:16px;border:1px dashed var(--ink-3);border-radius:10px;font-size:14px">
-      Ajusta estos dos párrafos a tu voz y a tu situación actual (rol, empresa,
-      qué buscas). Son lo primero que lee una persona, no un bot.
     </p>
   </section>
 
@@ -405,7 +380,6 @@ footer{
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:maciasdou@gmail.com">maciasdou@gmail.com</a>
       <a class="btn btn-ghost" href="https://github.com/tokyo07">GitHub</a>
-      <a class="btn btn-ghost" href="#" data-todo="pon aquí tu URL de LinkedIn">LinkedIn</a>
     </div>
   </section>
 
